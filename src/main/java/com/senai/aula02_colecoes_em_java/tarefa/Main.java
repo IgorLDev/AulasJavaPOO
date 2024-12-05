@@ -13,12 +13,12 @@ public class Main {
 
         String menu = """
                    --- Gerenciador de Tarefas ---
-                  1. Adicionar Tarefa             
-                  2. Listar Tarefas               
-                  3. Marcar Tarefa como Concluída 
-                  4. Remover Tarefa               
-                  5. Sair                         
-                  -------------------------------- 
+                  1. Adicionar Tarefa
+                  2. Listar Tarefas
+                  3. Marcar Tarefa como Concluída
+                  4. Remover Tarefa
+                  5. Sair
+                  --------------------------------
                 """;
         do {
             System.out.println(menu);
