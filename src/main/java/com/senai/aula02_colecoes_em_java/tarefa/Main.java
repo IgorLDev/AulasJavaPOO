@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int userEscolha;
-        String nomeTarefa = "";
 
-        ArrayList<Tarefas> listaTarefas = new ArrayList<>();
+    static ArrayList<Tarefa> listaTarefas = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int userEscolha;
+        String nomeTarefa;
 
         String menu = """
+                
                    --- Gerenciador de Tarefas ---
                   1. Adicionar Tarefa
                   2. Listar Tarefas
@@ -31,28 +33,39 @@ public class Main {
                 case 1:
                     System.out.println("Digite o nome da tarefa: ");
                     nomeTarefa = scanner.nextLine();
-                    listaTarefas.add(new Tarefas(nomeTarefa, false));
+                    listaTarefas.add(new Tarefa(nomeTarefa, false));
                     System.out.println("Tarefa adicionada com sucesso!");
                     break;
 
                 case 2:
-                    System.out.println("Lista de Tarefas: ");
-                    for (Tarefas tarefa : listaTarefas){
-                        System.out.println(listaTarefas.indexOf(tarefa));
-                    }
+                    exibirTarefas();
                     break;
 
                 case 3:
+                    exibirTarefas();
                     System.out.println("Digite o número da tarefa para marcar como concluída: ");
-                    userEscolha = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println("Tarefa '" + nomeTarefa + "' marcada como concluída.");
+                    listaTarefas.get(scanner.nextInt()-1).status = true;
+                    System.out.println("Tarefa marcada como concluída.");
                     break;
 
                 case 4:
+                    exibirTarefas();
                     System.out.println("Digite o número da tarefa que deseja excluir: ");
-                    userEscolha = scanner.nextInt();
+                    listaTarefas.remove(scanner.nextInt()-1);
+                    System.out.println("Tarefa excluída com sucesso.");
+                    break;
+                case 5:
+                    System.out.println("Fim do Programa.");
+                    scanner.close();
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
             }
-        } while (userEscolha < 0 || userEscolha > 5) ;
+        } while (userEscolha != 5);
+    }
+    public static void exibirTarefas(){
+        for (Tarefa tarefa : listaTarefas){
+            System.out.println((listaTarefas.indexOf(tarefa)+1) + " - " + tarefa);
+        }
     }
 }
