@@ -17,12 +17,23 @@ public class Produto {
     }
 
     public void setPreco(double preco) {
-        if (preco <= 0) {
+        if (preco >= 0) {
             this.preco = preco;
         } else {
-            System.out.println("Não");
+            System.out.println("Não é permitido números negativos.");
         }
     }
 
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
 
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "nome='" + nome + '\'' +
+                ", preco=" + preco +
+                '}';
+    }
 }

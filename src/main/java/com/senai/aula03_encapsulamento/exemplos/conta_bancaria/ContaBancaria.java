@@ -16,11 +16,8 @@ public class ContaBancaria {
     }
 
     public double getSaldo() {
+        System.out.println("Saldo: o cliente " + this.usuario.getNome() + " tem saldo de R$" + saldo + "\n");
         return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
     }
 
     public int getNumeroDaConta() {
@@ -55,11 +52,31 @@ public class ContaBancaria {
         this.tipo = tipo;
     }
 
-    public double sacar(){
-        return 0.0;
+    public void sacar(double qtdASacar){
+        if (qtdASacar >= 0 && qtdASacar <= saldo) {
+            saldo -= qtdASacar;
+            System.out.println("Saque de R$" + qtdASacar + " foi sacado da conta do Usuário.\nUsuário: " + this.usuario.getNome() + "\nSaldo atual: R$" + saldo + "\n");
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
     }
 
-    public void depositar(double valor){
+    public void depositar(double qtdADepositar){
+        if (qtdADepositar > 0) {
+        saldo += qtdADepositar;
+            System.out.println("Depósito de R$" + qtdADepositar + " foi depósitado na conta do Usuário.\nUsuário: " + this.usuario.getNome() + "\nSaldo atual: R$" + saldo + "\n");
+        } else {
+            System.out.println("Depósito insuficiente.");
+        }
+    }
+
+    public void transferir(double qtdATransferir, ContaBancaria contaDestino){
+        System.out.println("---------------------------------------------------");
+        System.out.println("Transferência:\n");
+        contaDestino.depositar(qtdATransferir);
+        System.out.println("---------------------------------------------------");
+        this.sacar(qtdATransferir);
+
 
     }
 
