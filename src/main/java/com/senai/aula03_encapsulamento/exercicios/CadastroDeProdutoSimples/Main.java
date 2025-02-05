@@ -13,7 +13,8 @@ public class Main {
         );
 
         System.out.println(produto2.getPreco());
-        produto2.setPreco(0);
+        produto2.setPreco(-2);
         System.out.println(produto2.getPreco());
+        System.out.println(produto2.getNome());
     }
 }
