@@ -1,4 +1,4 @@
-package com.senai.aula04_heranca.exercicios.sistema_de_funcionarios;
+package com.senai.aula04_heranca.exercicios.ex02_sistema_de_funcionarios;
 
 public class Funcionario {
     private String nome;
