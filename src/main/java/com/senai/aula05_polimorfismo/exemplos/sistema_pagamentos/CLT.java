@@ -1,4 +1,4 @@
-package com.senai.aula05_polimorfismo.exemplos.sistema_de_pagamentos;
+package com.senai.aula05_polimorfismo.exemplos.sistema_pagamentos;
 
 public class CLT extends Pagamento {
     private double salario;

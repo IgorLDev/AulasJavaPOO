@@ -1,4 +1,4 @@
-package com.senai.aula05_polimorfismo.exemplos.sistema_de_gestao_de_veiculos;
+package com.senai.aula05_polimorfismo.exemplos.sistema_gestao_de_veiculos;
 
 public class Veiculo {
     private String modelo;
