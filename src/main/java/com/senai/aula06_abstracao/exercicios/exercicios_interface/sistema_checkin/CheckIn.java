@@ -3,27 +3,26 @@ package com.senai.aula06_abstracao.exercicios.exercicios_interface.sistema_check
 public interface CheckIn {
     double PESO_MAXIMO = 10; // CONSTANTE
 
-    default String realizarCheckIn(int peso) {
+    default void realizarCheckIn(double peso) {
         if (validarCheckIn(peso)) {
-            return "Check-In realizado com Sucesso";
+            System.out.println("Check-In realizado com sucesso");
         } else {
-            return "Check-In falhou, tente novamente";
+            System.out.println("Check-In falhou, peso máximo atingido");
         }
     }
 
-    private boolean validarCheckIn(int peso){
+    private boolean validarCheckIn(double peso){
         return (peso <= PESO_MAXIMO);
     }
 
-    private void validarDocumentos() {
+    public default void validarDocumentos() {
         System.out.println("""
                 ----- Validação de Documentos Concluída com Sucesso ----
                 | Nome do passageiro: usuario                          |
                 | RG: rgUsuario                                        |
                 | CPF: cpfUsuario                                      |
                 | Número do voo: numeroVoo                             |
-                --------------------------------------------------------
-                """);
+                -------------------------------------------------------- """);
     }
 
     private void emitirCartaoEmbarque() {
